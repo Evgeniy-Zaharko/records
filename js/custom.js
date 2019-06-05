@@ -1,195 +1,434 @@
 /*
-Copyright (c) 2016 RockOn HTML Template
+Copyright (c) 2016 NightClub
 ------------------------------------------------------------------
 [Master Javascript]
 
-Project:	RockOn HTML Template
+Project: NightClub
 
 -------------------------------------------------------------------*/
-
-(function ($) {
+(function($) {
 	"use strict";
-	var RockOn = {
+	var nightclub = {
 		initialised: false,
 		version: 1.0,
 		mobile: false,
-		init: function () {
-
-			if(!this.initialised) {
+		init: function() {
+			if (!this.initialised) {
 				this.initialised = true;
 			} else {
 				return;
 			}
-
-			/*-------------- RockOn Functions Calling ---------------------------------------------------
+			/*-------------- nightclub Functions Calling ---------------------------------------------------
 			------------------------------------------------------------------------------------------------*/
 			this.RTL();
-			this.Smooth_Scrolling();
-			this.Tooltip();
-			this.MainSlider();
-			this.Menu();
-			this.Style_Switcher();
-			this.Accordion();
+			this.slider();
+			this.navigation_menu();
+			this.Eventcrousel();
+			this.trackcrousel();
+			this.video_popup();
+			this.clubcrousel();
+			this.video_crousel();
+			this.testimonial_slider();
+			this.gallery();
+			this.mediaelement();
+			this.datetimepicker();
+			this.activeclass();
+			this.booking_table();
 			this.MailFunction();
-			this.EventTab();
-			this.PageTitleBG();
-			this.Player();
-			this.TrackSlider();
-			this.Popup();
-			this.GalleryTab();
-			this.OwlSlider();
-			this.FooterGrid();
-			this.OtherJS();
-			
+			this.Greensock_animation();
 		},
-		
-		/*-------------- RockOn Functions definition ---------------------------------------------------
+		/*-------------- nightclub Functions definition ---------------------------------------------------
 		---------------------------------------------------------------------------------------------------*/
-		RTL: function () {
+		RTL: function() {
 			// On Right-to-left(RTL) add class 
 			var rtl_attr = $("html").attr('dir');
-			if(rtl_attr){
-				$('html').find('body').addClass("rtl");	
-			}		
+			if (rtl_attr) {
+				$('html').find('body').addClass("rtl");
+			}
 		},
-		PreLoader: function () {
-			jQuery("#status").fadeOut();
-			jQuery("#preloader").delay(350).fadeOut("slow");	
-		},
-		Smooth_Scrolling: function () {
-			//smooth scrolling
-			$.smoothScroll();
-		},
-		Tooltip: function () {
-			// tooltip
-			$('[data-toggle="tooltip"]').tooltip();
-		},
-		MainSlider: function(){
-			//main slider
-			$('.carousel').carousel({
-				interval: 4000,  // manage speed for the slider 
-				pause: "false"
-			});
-			
-			//background grid main slider
-			$( '#ri-grid' ).gridrotator( {
-				rows : 4,
-				columns : 8,
-				maxStep : 2,
-				interval : 2000,   // manage interval for grid image rotation 
-				w1024 : {
-					rows : 5,
-					columns : 6
-				},
-				w768 : {
-					rows : 5,
-					columns : 5
-				},
-				w480 : {
-					rows : 6,
-					columns : 4
-				},
-				w320 : {
-					rows : 7,
-					columns : 4
-				},
-				w240 : {
-					rows : 7,
-					columns : 3
-				},
-			});
-		},
-		Menu:function(){
-			// fixed menu on scroll
-			var hig = window.innerHeight - 130;
-			$(window).bind('scroll', function() {
-				if ($(window).scrollTop() > hig) {
-					$('#rock_header').addClass('rock_header_fixed');
-				}
-				else {
-					$('#rock_header').removeClass('rock_header_fixed');
-				}
-			});
-			$(window).bind('scroll', function() {
-				if ($(window).scrollTop() > 0) {
-					$('#rock_header_otherpage').addClass('rock_header_fixed');
-				}
-				else {
-					$('#rock_header_otherpage').removeClass('rock_header_fixed');
-				}
-			});
-			$(window).bind('scroll', function() {
-				if ($(window).scrollTop() > hig) {
-					$('#rock_header_single_page').addClass('rock_header_fixed');
-				}
-				else {
-					$('#rock_header_single_page').removeClass('rock_header_fixed');
-				}
-			});	
-			
-			//active menu on scroll single page
-			$(window).scroll(function() {
-				var windscroll = $(window).scrollTop();
-				if (windscroll >= 100) {
-					$('.rockon_section').each(function(i) {
-						if ($(this).position().top <= windscroll + 10 ) {
-							$('.rock_menu_single ul li').removeClass('active');
-							$('.rock_menu_single ul li').eq(i).addClass('active');
+		slider: function() {
+			//slider script
+			var tpj = jQuery;
+			var revapi4;
+			if (tpj("#rev_slider_4_1").revolution == undefined) {
+				revslider_showDoubleJqueryError("#rev_slider_4_1");
+			} else {
+				revapi4 = tpj("#rev_slider_4_1").show().revolution({
+					sliderType: "standard",
+					jsFileLocation: "../../revolution/js/",
+					sliderLayout: "fullscreen",
+					dottedOverlay: "none",
+					delay: 8000,
+					navigation: {
+						keyboardNavigation: "off",
+						keyboard_direction: "horizontal",
+						mouseScrollNavigation: "off",
+						onHoverStop: "off",
+						touch: {
+							touchenabled: "on",
+							swipe_threshold: 75,
+							swipe_min_touches: 1,
+							swipe_direction: "horizontal",
+							drag_block_vertical: false
+						},
+						arrows: {
+							style: "zeus",
+							enable: true,
+							hide_onmobile: true,
+							hide_under: 1300,
+							hide_onleave: true,
+							hide_delay: 200,
+							hide_delay_mobile: 1200,
+							tmp: '<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
+							left: {
+								h_align: "left",
+								v_align: "center",
+								h_offset: 30,
+								v_offset: 0
+							},
+							right: {
+								h_align: "right",
+								v_align: "center",
+								h_offset: 30,
+								v_offset: 0
+							}
 						}
-					});
-				} else {
-			
-					$('.rock_menu_single ul li').removeClass('active');
-					$('.rock_menu_single ul li:first').addClass('active');
+					},
+					viewPort: {
+						enable: true,
+						outof: "pause",
+						visible_area: "80%"
+					},
+					gridwidth: 1240,
+					gridheight: 550,
+					lazyType: "none",
+					parallax: {
+						type: "mouse",
+						origo: "slidercenter",
+						speed: 2000,
+						levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+					},
+					shadow: 0,
+					spinner: "off",
+					stopLoop: "off",
+					stopAfterLoops: -1,
+					stopAtSlide: -1,
+					shuffle: "off",
+					autoHeight: "off",
+					hideThumbsOnMobile: "off",
+					hideSliderAtLimit: 0,
+					hideCaptionAtLimit: 0,
+					hideAllCaptionAtLilmit: 0,
+					debugMode: false,
+					fallbacks: {
+						simplifyAll: "off",
+						nextSlideOnWindowFocus: "off",
+						disableFocusListener: false,
+					}
+				});
+			}
+		},
+		navigation_menu: function() {
+			//add dropdown icon in menu
+			$(".nc_navigations ul.sub-menu").parents("li").addClass("dropdown_menu");
+			$(".nc_navigations ul.sub-menu").parents("li.dropdown_menu").prepend('<i class="caret_down"></i>');
+		    //navigation menu fixed on scroll
+			var slider_h = $('.nc_header_main_home1').innerHeight() - 99;
+			//alert(slider_h);
+			$(window).on('bind scroll', function(e) {
+				if ($(window).scrollTop() > slider_h && $(window).width() > 991) {
+					$('.wrapper_navigation').addClass('fixed_top_menu');
 				}
-			}).scroll();		
-			
-		},
-		Style_Switcher:function(){
-			$("#style-switcher .bottom a.settings").on('click', function(e){
-				e.preventDefault();
-				var div = $("#style-switcher");
-				if (div.css("left") === "-161px") {
-					$("#style-switcher").animate({
-						left: "0px"
-					}); 
-				} else {
-					$("#style-switcher").animate({
-						left: "-161px"
-					});
+				else {
+					$('.wrapper_navigation').removeClass('fixed_top_menu');
+				}
+			});
+			//mobile toggle menu
+			$('.navbar_toggle').on('click', function(){
+				$(this).toggleClass('toggle_open');
+				$('.nc_navigations').toggleClass('menu_open');
+			});
+		    //mobile toggle submenu
+			$('.nc_navigations > ul > li.dropdown_menu').on('click', function(e) {
+				if ($(window).width() < 991) {
+					$('.nc_navigations > ul > li > ul.sub-menu');
+					$(this).find("ul").toggle(500);
+				} 
+				else {
+					
 				}
 			});
 			
-			//color change
-			$('.colorchange').on('click', function(){
-				var color_name=$(this).attr('id');
-				var new_style='css/color/'+color_name+'.css';
-				$('#theme-color').attr('href',new_style);
-			});
-			//pattern change
-			$('.pattern_change').on('click', function(){
-				var name=$(this).attr('id');
-				var new_style='css/pattern/'+name+'.css';
-				$('#theme-pattern').attr('href',new_style);
-			});
-
+		
 		},
-		Accordion:function(){
-			//accordion
-			jQuery(function ($) {
-				var $active = $('#accordion .panel-collapse.in').prev().addClass('active');
-				$active.find('a').prepend('<i class="glyphicon glyphicon-minus"></i>');
-				$('#accordion .panel-heading').not($active).find('a').prepend('<i class="glyphicon glyphicon-plus"></i>');
-				$('#accordion').on('show.bs.collapse', function (e) {
-					$('#accordion .panel-heading.active').removeClass('active').find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
-					$(e.target).prev().addClass('active').find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
-				})
+		
+		//eventcrousel
+		Eventcrousel: function() {
+			$(".event_crousel").owlCarousel({
+				mode: 'fade',
+				autoplay: true,
+				margin: 20,
+				items: 2,
+				touchDrag: true,
+				responsiveClass: true,
+				animateIn: true,
+				animateOut: true,
+				responsive: {
+					0: {
+						items: 1
+					},
+					480: {
+						items: 1
+					},
+					600: {
+						items: 1
+					},
+					1000: {
+						items: 2
+					}
+				},
+				paginationSpeed: 1000,
+				slideSpeed: 500,
+				smartSpeed: 250
 			});
-
 		},
-		MailFunction:function(){
+		trackcrousel: function() {
+			$(".track_crousel").owlCarousel({
+				autoplay: false,
+				margin: 0,
+				items: 5,
+				responsiveClass: true,
+				dots: false,
+				nav: true,
+				navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right"></i>'],
+				animateIn: true,
+				animateOut: true,
+				responsive: {
+					0: {
+						items: 1
+					},
+					480: {
+						items: 2
+					},
+					600: {
+						items: 3
+					},
+					1000: {
+						items: 5
+					}
+				}
+			});
+		},
+		//home video popup
+		video_popup: function () {
+			//autoplay video
+			$('.video_overlay > a').click(function(){
+				setTimeout(function(){
+					$('#video_1 .mejs-overlay-play').trigger("click");
+				},200);
+			});
+			
+			$('.video_popup').magnificPopup({
+				type: 'inline',
+				removalDelay: 300,
+				mainClass: 'my_zoom_in',
+				removalDelay: 160,
+				preloader: false,
+				fixedContentPos: false,
+			});
+		},
+		//clubcrousel
+		clubcrousel: function() {
+			$(".club_crousel").owlCarousel({
+				autoplay: true,
+				margin: 30,
+				items: 3,
+				responsiveClass: true,
+				responsive: {
+					0: {
+						items: 1
+					},
+					480: {
+						items: 1
+					},
+					600: {
+						items: 2
+					},
+					1000: {
+						items: 3
+					}
+				}
+			});
+		},
+		//video crousel 
+		video_crousel: function() {
+			$(".video_crousel").owlCarousel({
+				autoplay: false,
+				margin: 0,
+				items: 1,
+				singleItems: true,
+				responsiveClass: true,
+				dots: false,
+				nav: true,
+				navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right"></i>']
+			});
+		},
+		//owl slider
+		testimonial_slider: function() {
+			//testimonialslider
+			$(".testimonial_crousel").owlCarousel({
+				loop:true,
+				margin: 0,
+				autoplay: true,
+				items: 1,
+				singleItems: true,
+				touchDrag: true,
+				responsiveClass: true
+			});
+		},
+		
+		//gallery 
+		gallery: function() {
+			//sidebar gallery
+			$('.sidebar_gallery').magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				tLoading: 'Loading image #%curr%...',
+				removalDelay: 300,
+				mainClass: 'image_fade',
+				gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+				},
+				image: {
+					tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+					titleSrc: function(item) {
+						return item.el.attr('title') + '<small></small>';
+					}
+				}
+			});
+			//photo gallery
+			$('.photo_gallery_popup').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				midClick: true,
+				gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [0, 1]
+				},
+				removalDelay: 300,
+				mainClass: 'my_zoom_in'
+			});
+			//video gallery
+			$('.video_popup_gallery').magnificPopup({
+				type: 'inline',
+				removalDelay: 300,
+				mainClass: 'my_zoom_in',
+				removalDelay: 160,
+				preloader: false,
+				fixedContentPos: false,
+			});
+		},
+		//mediaelement
+		mediaelement: function() {
+			//audio media
+			$('audio').mediaelementplayer({
+				loop: true,
+				autoplay: true,
+				playlist: true,
+				favourite: true,
+				audioHeight: 30,
+				playlistposition: 'bottom',
+				features: ['playlistfeature', 'prevtrack', 'playpause', 'nexttrack', 'shuffle', 'tracks', 'current', 'duration', 'progress', 'volume']
+			});
+			//video media
+			$('video').mediaelementplayer({
+				loop: true,
+				autoplay: true,
+				playlist: false,
+				audioHeight: 50,
+				playlistposition: 'bottom',
+				videoVolume: 'horizontal',
+				features: ['playlistfeature', 'playpause', 'loop', 'current', 'duration', 'progress', 'volume']
+			});
+			//audio playlist
+			$('.media_player .mejs-nexttrack').attr('data-current','audio_2');
+			$('.media_player .mejs-prevtrack').attr('data-current','audio_7'); // last audio track ID
+			
+			//audio playlist
+			$('.play_button .fa-play').click(function(){
+				$('.mejs-mediaelement #mejs').prop('src',$(this).attr('data-audio'));
+				var audio_title = $(this).attr("data-title"); // value of the audio title
+				var track_thumb = $(this).parent().parent().prev('img').attr('src'); // value of the thumb src
+				$('.mejs-mediaelement #mejs').html('<source src="'+$(this).prop('data-audio')+'" title="'+audio_title+'" type="audio/mp3">');
+				$('.track_crousel .item').removeClass('active');
+				$(this).parent().parent().parent('.item').addClass('active');
+				
+				$('.media_player .mejs-playlist .mejs > li').text(audio_title); // change audio title
+				$('.nc_media_player > .track_thumb > img').attr('src',track_thumb);  // change thumb image of the track
+				setTimeout(function(){
+					$('.media_player .mejs-playpause-button').trigger('click'); // play track on click
+				},300);
+				
+				$('.media_player .mejs-nexttrack').attr('data-current',$(this).attr('id'));
+				$('.media_player .mejs-prevtrack').attr('data-current',$(this).attr('id'));
+			});
+			
+			// audio next/prev track
+			$('.media_player .mejs-nexttrack').on('click', function(){
+				var curId = $(this).attr('data-current');
+				var nextId = $('#'+curId).attr('data-next');
+				$('#'+nextId).trigger('click');
+			});
+			
+			// audio next/prev track
+			$('.media_player .mejs-prevtrack').on('click', function(){
+				var curId = $(this).attr('data-current');
+				var prevId = $('#'+curId).attr('data-prev');
+				$('#'+prevId).trigger('click');
+			});
+			
+		},
+		//datepicker
+		datetimepicker: function() {
+			$(".datepicker").datepicker({
+				showOn: "button",
+				dateFormat: "dd/mm/yy"
+			});
+		},
+		
+		activeclass: function() {
+			//pagination active 
+			$(".pagination a").on("click", function() {
+				$(".pagination").find(".active").removeClass("active");
+				$(this).parent().addClass("active");
+			});
+			//active class club slider
+			$(".carousel-inner .item:first-child").addClass("active");
+		},
+		booking_table: function() {
+			//js for booking_table
+			$(".book_thumb").on("click", function() {
+				$(".book_thumb").find(".seat_active").removeClass("seat_active");
+				$(this).parent().addClass("seat_active");
+				$(this).children('.table_overlay').css('cursor', 'not-allowed');
+				$(this).children('.table_overlay').children('.reserved_tbl').html('Reserve');
+			});
+			//table close
+			$(".nc_table_close").on("click", function() {
+				$(".book_thumb").find(".seat_active");
+				$(this).parent().removeClass("seat_active");
+				$('.table_overlay').css('cursor', 'pointer');
+			});
+		},
+        MailFunction:function(){
+			//contact form mail function
 			//contact mail function	
-			$('#em_sub').on('click', function(){
+			$('#submit_frm').on('click', function(){
 				var un=$('#uname').val();
 				var em=$('#uemail').val();
 				var wsite=$('#web_site').val();
@@ -224,60 +463,46 @@ Project:	RockOn HTML Template
 				});
 			});
 			
-			/* booking mail function */
-			$('#booking_sub').on('click', function(){
-				var book_tn=$('#booking_table_no').val();
-				var book_date=$('.booking_date').val();
+			//table booking mail function 
+			$('#booking_table').on('click', function(){
 				var book_fname=$('#booking_fname').val();
-				var book_lname=$('#booking_lname').val();
-				var book_guest=$('#booking_guest').val();
-				var book_female=$('#booking_female').val();
-				var book_male=$('#booking_male').val();
 				var book_mail=$('#booking_mail').val();
+				var book_tn=$('#booking_table_no').val();
+				var book_guest=$('#booking_guest').val();
+				var book_date=$('#booking_date').val();
 				var book_phone=$('#booking_phone').val();
 				var book_instruction=$('#booking_instruction').val();
 				
 				$.ajax({
 					type: "POST",
-					url: "book-table.php",
+					url: "book_table.php",
 					data: {
-						'booking_table_no':book_tn,
-						'booking_date':book_date,
 						'booking_fname':book_fname,
-						'booking_lname':book_lname,
-						'booking_guest':book_guest,
-						'booking_female':book_female,
-						'booking_male':book_male,
 						'booking_mail':book_mail,
+						'booking_table_no':book_tn,
+						'booking_guest':book_guest,
+						'booking_date':book_date,
 						'booking_phone':book_phone,
 						'booking_instruction':book_instruction,
 					},
 					success: function(msg) {
 						var full_msg=msg.split("#");
 						if(full_msg[0]=='1')
-						{
+						{   $('#booking_fname').val("");
+					        $('#booking_mail').val("");
 							$('#booking_table_no').val("");
-							$('.booking_date').val("");
-							$('#booking_fname').val("");
-							$('#booking_lname').val("");
 							$('#booking_guest').val("");
-							$('#booking_female').val("");
-							$('#booking_male').val("");
-							$('#booking_mail').val("");
+							$('#booking_date').val("");
 							$('#booking_phone').val("");
 							$('#booking_instruction').val("");
 							$('#booking_err').html( full_msg[1] );
 						}
 						else
-						{
+						{   $('#booking_fname').val(book_fname);
+					        $('#booking_mail').val(book_mail);
 							$('#booking_table_no').val(book_tn);
-							$('.booking_date').val(book_date);
-							$('#booking_fname').val(book_fname);
-							$('#booking_lname').val(book_lname);
 							$('#booking_guest').val(book_guest);
-							$('#booking_female').val(book_female);
-							$('#booking_male').val(book_male);
-							$('#booking_mail').val(book_mail);
+							$('#booking_date').val(book_date);
 							$('#booking_phone').val(book_phone);
 							$('#booking_instruction').val(book_instruction);
 							$('#booking_err').html( full_msg[1] );
@@ -287,351 +512,124 @@ Project:	RockOn HTML Template
 			});
 		
 		},
-		EventTab:function(){
-			// event tab
-			$('.rock_event_tab > ul').each(function(){
-				var $active, $content, $links = $(this).find('a');
-				$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
-				$active.addClass('active');
-				$content = $($active[0].hash);
-				$links.not($active).each(function () {
-				  $(this.hash).hide();
-				});
-				$(this).on('click', 'a', function(e){
-					$active.removeClass('active');
-					$content.hide();
-					$active = $(this);
-					$content = $(this.hash);
-					$active.addClass('active');
-					$content.fadeIn().addClass('animated fadeIn');
-					e.preventDefault();
-				});
-			});
-		},
-		DateTimePicker:function(){
-			// date time picker	
-			var logic = function( currentDateTime ){
-				if( currentDateTime ){
-					if( currentDateTime.getDay()==6 ){
-						this.setOptions({
-							minTime:'11:00'
-						});
-					}else
-						this.setOptions({
-							minTime:'8:00'
-						});
-				}
-			};
-			$('#datetimepicker').datetimepicker({
-				onChangeDateTime:logic,
-				onShow:logic
-			});
-			
-			// custom select picker
-			$('.selectpicker').selectpicker({
-                'selectedText': 'cat'
-            });
-			
-		},
-		PageTitleBG:function(){
-			//page title background grid	
-			$( '#rock_page_title_bg' ).gridrotator( {
-				rows : 1,
-				columns : 8,
-				maxStep : 2,
-				interval : 2000,  // adjust flip interval of page title background grid 
-				w1024 : {
-					rows : 1,
-					columns : 6
-				},
-				w768 : {
-					rows : 1,
-					columns : 5
-				},
-				w480 : {
-					rows : 2,
-					columns : 4
-				},
-				w320 : {
-					rows : 2,
-					columns : 4
-				},
-				w240 : {
-					rows : 3,
-					columns : 3
-				},
-			});
-		},
-		Player:function(){
-			//player
-			$('.rock_player').mediaelementplayer({
-				alwaysShowControls: true,
-				features: ['playpause','progress','volume'],
-				audioVolume: 'horizontal',
-				audioWidth: 450,
-				audioHeight: 70,
-				iPadUseNativeControls: true,
-				iPhoneUseNativeControls: true,
-				AndroidUseNativeControls: true
-			});
-		},
-		TrackSlider:function(){
-			//club track slider
-			$('.bxslider').bxSlider({
-				mode: 'vertical',
-				slideMargin: 5,
-				minSlides: 2,
-				auto: true,
-				default: 500,
-				controls: false,
-				pager: false,
-				autoHover: true
-			});
-		},
-		PlayListSlider:function(){
-			//play list slider 
-			$('.rock_track_playlist_slider').bxSlider({
-				mode: 'vertical',
-				slideMargin: 0,
-				minSlides: 2,
-				auto: true,
-				default: 500,
-				controls: true,
-				pager: false,
-				autoHover: true,
-				nextSelector: '#rock_track_playlist_slider_next',
-				prevSelector: '#rock_track_playlist_slider_prev',
-				nextText: '<i class="fa fa-angle-up"></i>',
-				prevText: '<i class="fa fa-angle-down"></i>'
-			});	
-		},
-		Popup:function(){
-			// club photo image popup
-			$(".fancybox").fancybox({
-				openEffect	: 'elastic',
-				closeEffect	: 'elastic',
-				helpers : 
-				{
-					overlay: 
-					{ 
-						locked: false 
-					} 
-				}
-			});
-		},
-		GalleryTab:function(){
-			$('.main_gallery_tab > ul').each(function(){
-				var $active, $content, $links = $(this).find('a');
-				$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
-				$active.addClass('active');
-				$content = $($active[0].hash);
-				$links.not($active).each(function () {
-					$(this.hash).hide();
-				});
-				$(this).on('click', 'a', function(e){
-					$active.removeClass('active');
-					$content.hide();
-					$active = $(this);
-					$content = $(this.hash);
-					$active.addClass('active');
-					$content.fadeIn();
-					e.preventDefault();
-				});
-			});
-		},
-		OwlSlider:function(){
-			// club photo slider
-			var rcps_owl = $("#rock_club_photo_slider");
-			rcps_owl.owlCarousel({
-				items : 3,
-				itemsDesktop : [1000,3], 
-				itemsDesktopSmall : [900,2], 
-				itemsTablet: [600,2], 
-				itemsMobile : false 
-			});
-			// Custom Navigation Events
-			$(".next").on('click', function(){
-				rcps_owl.trigger('owl.next');
-			});
-			$(".prev").on('click', function(){
-				rcps_owl.trigger('owl.prev');
-			});
-			
-			//disc jockcy slider 
-			var rdjs_owl = $("#rock_disc_jockcy_slider");
-			rdjs_owl.owlCarousel({
-				items : 4, 
-				itemsDesktop : [1000,4], 
-				itemsDesktopSmall : [900,3], 
-				itemsTablet: [600,2], 
-				itemsMobile : false ,
-				autoPlay : true
-			});
-			// Custom Navigation Events
-			$(".next").on('click', function(){
-				rdjs_owl.trigger('owl.next');
-			});
-			$(".prev").on('click', function(){
-				rdjs_owl.trigger('owl.prev');
-			});
-			
-			
-		},
-		FooterGrid:function(){
-			$( '#ri-grid2' ).gridrotator( {
-				rows : 1,
-				columns : 8,
-				maxStep : 2,
-				interval : 2000,
-				w1024 : {
-					rows : 1,
-					columns : 6
-				},
-				w768 : {
-					rows : 1,
-					columns : 5
-				},
-				w480 : {
-					rows : 2,
-					columns : 4
-				},
-				w320 : {
-					rows : 2,
-					columns : 4
-				},
-				w240 : {
-					rows : 3,
-					columns : 3
-				},
-			});
-		},
-		OtherJS:function(){
-			// single page
-			$("#rockon_single").single({
-				speed: 1000,
-				animation: "easeOutExpo"
-			});
-			
-			
+ 		
+		Greensock_animation: function() {
+			// animation js start on page load
 			// logo animation
-			$('.rock_logo:after').addClass('animated fadeInDownBig');
-			
-			
-			//
-			var bg_w = window.innerWidth;
-			var bg_h = window.innerHeight;
-			$('rock_single_page_slider_bg').css('width', bg_w);
-			$('rock_single_page_slider_bg').css('height', bg_h);
-
-			
-			// drop down menu
-			$('.rock_menu ul li').children('ul').addClass('animated fadeInDown');
-			$('.rock_menu ul li ul li').children('ul').addClass('animated fadeInLeft');
-			
-			
-			// club photo hover overlay
-			$('.rock_club_photo_item').hover(function(){
-				$(this).children('.rock_club_photo_overlay').fadeToggle();
+			TweenMax.from(".nc_logo", 2, {
+				scale: 0.2, opacity: 0, ease: Power3.easeInOut
 			});
-
-
-			// footer and rock-track
-			var track_height = $(".rock_club_track").innerHeight() - 100;
-			var half_of_track_height = track_height / 2 ;
-			$('.rock_footer_home').css('margin-top', half_of_track_height);
-			$('.rock_footer_home').css('padding-top', half_of_track_height + 30);
-			
-			
-			//player poster hover
-			$('.rock_audio_player').hover(function(){
-				$('.rock_audio_player_track_image_overlay').toggle().addClass('animated fadeInUp');
-			});
-	
-	
-			//Rockon Club Track share button hover
-			$('.rock_share_track').hover(function(){
-				var id=$(this).attr('id');
-				$('.'+id).show();
-				$('.'+id+' li').addClass('animated fadeInLeft');
-			});
-			$('.rock_track_playlist ul li .rock_track_detail').mouseleave(function(){
-				$('.rock_track_playlist ul li .rock_track_detail .rock_social').hide();
-			});
-	  
-	  
-			// sidebar categories dropdown
-			$('.rock_categories ul li').on('click', function(){
-				$(this).children('ul').slideToggle();
-			});
-	 
-			// book table
-			$('.rock_table_1').on('click', function(){
-				var existno = $('#booking_table_no').val();
-				var id = $(this).attr('id');
-
-				if(existno == '')
-				$('#booking_table_no').val(id);
-				else
-				$('#booking_table_no').val(existno+','+id);
-
-				$(this).addClass('active');
-				$(this).children('.table_overlay').children('p').html('<p>Reserve</p>');
-				$(this).children('.table_overlay').children('p').css('margin-left','-27px');
-				$(this).children('.table_overlay').css('cursor','not-allowed');
-				$('#cls_'+id).css('display','block');
+			TweenMax.to(".nc_logo", 2, {
+				scale: 1, opacity: 1, ease: Power3.easeInOut
 			});
 			
-			// gallery item click
-			$('.main_gallery_item_link').on('click', function(){
-				$('.main_gallery_item_popup').each(function(){
-					$(this).hide();
-				});
-				var shaid=$(this).attr('id');
-				$('.'+shaid).slideDown();
+			//contact us page
+			TweenMax.to(".event_page_main .nc_event_cover", 2, {
+				x: 0, opacity: 1, delay: 0.5, ease: Power3.easeInOut
 			});
-			$('.main_gallery_item_popup_close').on('click', function(){
-				$('.main_gallery_item_popup').slideUp();
-			});	 
+			TweenMax.to(".event_page_main .nc_event_cover", 2, {
+				x: 0, opacity: 1, delay: 0.5, ease: Power3.easeInOut
+			});
+			
+			//booking table
+			TweenMax.from(".nc_book_table", 2, {
+				y: 100 + "%", opacity: 0, ease: Power3.easeInOut
+			});
+			TweenMax.to(".nc_book_table", 2, {
+				y: 0, opacity: 1, delay: 1, ease: Power3.easeInOut
+			});
+			
+			//photo gallery page
+			TweenMax.from("#photo_gallery_second .gallery_cover", 2, {
+				x: -100 + "%", opacity: 0, ease: Power3.easeInOut
+			});
+			TweenMax.to("#photo_gallery_second .gallery_cover", 2, {
+				x: 0, opacity: 1, delay: 0.5, ease: Power3.easeInOut
+			});
+			
+			//video gallery page
+			TweenMax.from(".nc_video_gallery .nc_video_thumb", 2, {
+				x: -100 + "%", opacity: 0, ease: Power3.easeInOut
+			});
+			TweenMax.to(".nc_video_gallery .nc_video_thumb", 2, {
+				x: 0, opacity: 1, delay: 0.5, ease: Power3.easeInOut
+			});
+			// animation define controller
+			var controller = $.superscrollorama({
+				triggerAtCenter: false,
+				playoutAnimations: true,
+				reverse: true
+			});
+			// amount of scrolling 
+			var scrollDuration = 1;
+			// individual element tween examples
+			// welcome nightclub
+			controller.addTween('.nc_header_main_home1', TweenMax.from($('.nc_thumb_wrapper.bottom_1'), 1.5, {
+				opacity: 0, y: 80, ease: Power4.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_header_main_home1', TweenMax.to($('.nc_thumb_wrapper.bottom_1'), 1.5, {
+				opacity: 1, y: 0, ease: Power4.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_header_main_home1', TweenMax.from($('.nc_thumb_wrapper.bottom_2'), 2, {
+				opacity: 0, y: 120, ease: Power4.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_header_main_home1', TweenMax.to($('.nc_thumb_wrapper.bottom_2'), 2, {
+				opacity: 1, y: 0, ease: Power4.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_header_main_home1', TweenMax.from($('.nc_thumb_wrapper.bottom_3'), 2.4, {
+				opacity: 0, y: 160, ease: Power4.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_header_main_home1', TweenMax.to($('.nc_thumb_wrapper.bottom_3'), 2.4, {
+				opacity: 1, y: 0, ease: Power4.easeInOut
+			}), scrollDuration);
+			
+			//offer section
+			controller.addTween('.nc_club_slider', TweenMax.from($('.offers_box_wrapper'), 1, {
+				x: -200, opacity: 0, scale: 0.5, ease: Sine.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_club_slider', TweenMax.to($('.offers_box_wrapper'), 1, {
+				x: 0, opacity: 1, scale: 1, ease: Sine.easeInOut
+			}), scrollDuration);
+			
+			//photo gallery
+			controller.addTween('.nc_event_main', TweenMax.from($('.home_gallery .gallery_cover'), 2, {
+				x: -100 + "%", opacity: 0, ease: Power3.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_event_main', TweenMax.to($('.home_gallery .gallery_cover'), 2, {
+				x: 0, opacity: 1, ease: Power3.easeInOut
+			}), scrollDuration);
+			
+			//video crousel
+			controller.addTween('.nc_track_wrapper', TweenMax.from($('.video_crousel'), 2, {
+				x: -50, opacity: 0, ease: Expo.easeInOut
+			}), scrollDuration);
+			controller.addTween('.nc_track_wrapper', TweenMax.to($('.video_crousel'), 2, {
+				x: 0, opacity: 1, ease: Expo.easeInOut
+			}), scrollDuration);
+			
+			//recent blog
+			controller.addTween('#testimonials', TweenMax.from($('.blog_cover'), 2, {
+				y: 100, opacity: 0, ease: Power4.easeInOut
+			}), scrollDuration);
+			controller.addTween('#testimonials', TweenMax.to($('.blog_cover'), 2, {
+				y: 0, opacity: 1, ease: Power4.easeInOut
+			}), scrollDuration);
 			
 		}
-		
-		
-		
 	};
-
-	RockOn.init();
-	
-	// Load Event
-	$(window).on('load', function() {
-		RockOn.PreLoader();
+	nightclub.init();
+	// Scroll Event
+	$(window).on('scroll', function() {});
+	//load event
+	$(window).load(function() {
+		// loader 
+		$(".nc_preloader").delay(500).fadeOut("slow");
 	});
-	
-	// ready function
-	$(document).ready(function() {
-		RockOn.DateTimePicker();
-		RockOn.PlayListSlider();
+	//Click event
+	$('.gallery_cover, .sidebar_gallery').on('click', function() {
+		$('.my_zoom_in .mfp-arrow').prepend('<i></i>');
+		$('.image_fade .mfp-arrow').prepend('<i></i>');
+		$('.mfp-arrow.mfp-arrow-left i').addClass('fa fa-caret-left');
+		$('.mfp-arrow.mfp-arrow-right i').addClass('fa fa-caret-right');
 	});
-	
-
 })(jQuery);
-
-function rock_table_close(clsid){
-	$('#'+clsid).removeClass('active');
-	$('#cls_'+clsid).css('display','none');
-	$('#'+clsid).children('.table_overlay').children('p').children('p').html(clsid);
-	$('#'+clsid).children('.table_overlay').children('p').children('p').css('margin-left','5px');
-	$(this).children('.table_overlay').css('cursor','not-allowed');
-
-	var curval = $('#booking_table_no').val();
-	var newclsid = ','+clsid;
-	var newtextval = curval.replace(newclsid, '');	
-	//console.log(newtextval);
-	var clsid1 = clsid+',';
-	var newtextval1 = newtextval.replace(clsid1, '');
-	
-	var newtextval2 = newtextval.replace(clsid, '');
-	//console.log(newtextval1);
-	
-	var newtextval12 = newtextval2.replace(/^,/,'');	
-	$('#booking_table_no').val(newtextval12);
-} 
