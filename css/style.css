@@ -3767,12 +3767,26 @@ h2.comment_title {
 /*----------------------------------------------------------------------------------
  29. triangle and button shape css end
 ----------------------------------------------------------------------------------*/
+.top-menu {
+	height: 90px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
 
+.top-menu * {
+	display: block;
+	margin-top: 8px;
+	color: #fff;
+}
+
+.top-menu .phone-request {
+	font-size: 1.04rem;
+	text-decoration: underline;
+}
 
 .blue-magnet {
 	height: 200px;
 	background-color: #03a9f4;
-	/* padding-bottom: 50px; */
 	color: #fff;
 }
 
@@ -3821,6 +3835,10 @@ h2.comment_title {
 		left: 75px;
 		right: auto !important;
 		top: 29px !important;
+	}
+
+	.mobile-hidden {
+		display: none;
 	}
 } 
 
