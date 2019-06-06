@@ -878,7 +878,7 @@ p.logo_bottom_text:hover:after {
   7. Home gallery  css start
 ----------------------------------------------------------------------------------*/
 .nc_gallery_wrapper {
-    padding-bottom: 80px;
+    padding-bottom: 0;
     padding-top: 55px;
 	background: url('../images/bg/pattern_bg.jpg') no-repeat;
     background-size: cover;
@@ -1567,6 +1567,26 @@ p.logo_bottom_text:hover:after {
 /*----------------------------------------------------------------------------------
   11. Home Blog css end
 ----------------------------------------------------------------------------------*/
+.map-container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.map-responsive{
+	overflow:hidden;
+	padding-top: 10%;
+    padding-bottom:17%;
+    position:relative;
+	height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+	position:absolute;
+	frameborder: 0;
+}
 
 /*----------------------------------------------------------------------------------
   12. subscribe css start
