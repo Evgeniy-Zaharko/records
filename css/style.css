@@ -3767,3 +3767,41 @@ h2.comment_title {
 /*----------------------------------------------------------------------------------
  29. triangle and button shape css end
 ----------------------------------------------------------------------------------*/
+
+
+.blue-magnet {
+	height: 200px;
+	background-color: #03a9f4;
+	/* padding-bottom: 50px; */
+	color: #fff;
+}
+
+.blue-magnet .get-started-btn {
+	background-color: #f40303;
+	border-color: #f40303;
+	text-align: center;
+	border-radius: 4px;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: block;
+	margin-top: 80px;
+}
+
+.blue-magnet .magnet-title {
+	display: block;
+	margin-top: 65px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.blue-magnet .magnet-subtitle {
+	text-align: center;
+	font-size: 1.3rem;
+}
+
+.blue-magnet .magnet-subtitle .magnet-phone-number {
+	color: #f40303;
+	/* font-weight: bolder; */
+}
+
