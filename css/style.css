@@ -3781,6 +3781,7 @@ h2.comment_title {
 	border-color: #f40303;
 	color: #fff;
 	text-align: center;
+	font-size: 1.2rem;
 	border-radius: 4px;
 	padding: 10px;
 	padding-left: 15px;
@@ -3813,4 +3814,13 @@ h2.comment_title {
 .menu-el {
 	padding-top: 9px;
 }
+
+@media(max-width: 991px){
+	.nc_navigations ul > li i {
+		margin-top: 7px;
+		left: 75px;
+		right: auto !important;
+		top: 29px !important;
+	}
+} 
 
