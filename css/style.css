@@ -1572,8 +1572,11 @@ p.logo_bottom_text:hover:after {
   12. subscribe css start
 ----------------------------------------------------------------------------------*/
 .nc_subscribe_section {
-    background-color: #ffffff;
-    padding: 57px 0 80px;
+	background-image: url("../images/bg/bg-contact.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 57px 0 80px;
+	background-attachment: fixed;
 }
 .nc_subscribe_cover .nc_heading_middle {
 	text-align: center;
