@@ -3767,6 +3767,47 @@ h2.comment_title {
 /*----------------------------------------------------------------------------------
  29. triangle and button shape css end
 ----------------------------------------------------------------------------------*/
+.features {
+	height: 620px;
+	background-color: #fff;
+	/* color: #fff; */
+}
+
+.features h2 {
+	color: #03a9f4;
+	margin-top: 45px;
+}
+
+.features .card {
+	display: block;
+	width: 28rem;
+	height: 14rem;
+	margin-top: 30px;
+	margin-left: 90px;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 50px;
+}
+
+.features .card h3 {
+	color: #03a9f4;
+	height: 3rem;
+	width: 18rem;
+}
+
+.features .card p {
+	width: 18rem;
+}
+
+.features .card i {
+	margin-top: 14px;
+	font-size: 3.5rem;
+	color: #03a9f4;
+}
+
 .top-menu {
 	height: 90px;
 	background-color: rgba(0, 0, 0, 0.5);
