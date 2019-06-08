@@ -118,19 +118,19 @@ input:focus {
   /* placeholder css start */
   /* subscribe input placehold */
 .subscribe_input input::-webkit-input-placeholder {
- color: #313131;
+ color: #ffffff;
 }
 
 .subscribe_input input :-moz-placeholder { /* Firefox 18- */
- color: #313131;
+ color: #ffffff;
 }
 
 .subscribe_input input ::-moz-placeholder {  /* Firefox 19+ */
- color: #313131;
+ color: #ffffff;
 }
 
 .subscribe_input input :-ms-input-placeholder {
- color: #313131;
+ color: #ffffff;
 }
 /* subscribe input placehold */
 
@@ -1592,7 +1592,7 @@ p.logo_bottom_text:hover:after {
   12. subscribe css start
 ----------------------------------------------------------------------------------*/
 .nc_subscribe_section {
-	background-image: url("../images/bg/bg-contact.png");
+	background-image: url("../images/bg/bg-contact.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 57px 0 80px;
@@ -1602,7 +1602,7 @@ p.logo_bottom_text:hover:after {
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #000000;
+	color: #ffffff;
 	letter-spacing: 0.075em;
 	float: left;
 	width: 100%;
@@ -1637,7 +1637,7 @@ p.logo_bottom_text:hover:after {
     font-weight: 500;
 }
 .nc_subscribe_cover h4 {
-    color: #000000;
+    color: #ffffff;
     font-size: 15px;
     line-height: 23px;
     font-family: 'Ubuntu', sans-serif;
@@ -1654,12 +1654,12 @@ p.logo_bottom_text:hover:after {
 }
 .subscribe_input input {
 	background-color: transparent;
-	border-bottom: 2px solid #000000 !important;
+	border-bottom: 2px solid #ffffff !important;
 	border: none;
 	padding: 0px 20px;
 	font-size: 18px;
 	line-height: 23px;
-	color: #292828;
+	color: #a09e9e;
 	height: 50px;
 	margin-right: 26px;
 	width: 35%;
@@ -1700,14 +1700,14 @@ p.logo_bottom_text:hover:after {
 	background: transparent;
 	border-left: transparent;
 	border-right: transparent;
-	border-color: #000000;
+	border-color: #ffffff;
 	height: 50px;
 	line-height:48px;
 	font-size: 15px;
 	font-weight: 500;
 	text-transform: uppercase;
 	padding: 0 30px;
-	color: #000000;
+	color: #ffffff;
 	letter-spacing: 0.025em;
 	transition: all 0.2s;
     -webkit-transition: all 0.2s;
@@ -3774,7 +3774,7 @@ h2.comment_title {
 }
 
 .features h2 {
-	color: #03a9f4;
+	color: #4d1d4d;
 	margin-top: 45px;
 }
 
@@ -3793,7 +3793,7 @@ h2.comment_title {
 }
 
 .features .card h3 {
-	color: #03a9f4;
+	color: #4d1d4d;
 	height: 3rem;
 	width: 18rem;
 }
@@ -3805,7 +3805,7 @@ h2.comment_title {
 .features .card i {
 	margin-top: 14px;
 	font-size: 3.5rem;
-	color: #03a9f4;
+	color: #4d1d4d;
 }
 
 .top-menu {
@@ -3827,7 +3827,7 @@ h2.comment_title {
 
 .blue-magnet {
 	height: 200px;
-	background-color: #03a9f4;
+	background-color: #4d1d4d;
 	color: #fff;
 }
 
