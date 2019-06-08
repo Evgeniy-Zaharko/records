@@ -3770,7 +3770,6 @@ h2.comment_title {
 .features {
 	padding-bottom: 50px;
 	background-color: #fff;
-	/* color: #fff; */
 }
 
 .features h2 {
@@ -3780,10 +3779,8 @@ h2.comment_title {
 
 .features .card {
 	display: block;
-	/* width: 28rem; */
 	height: 14rem;
 	margin-top: 30px;
-	/* margin-left: 90px; */
 	border: 1px solid #bbb;
 	border-radius: 4px;
 	padding-top: 20px;
@@ -3799,11 +3796,9 @@ h2.comment_title {
 .features .card h3 {
 	color: #4d1d4d;
 	height: 3rem;
-	/* width: 18rem; */
 }
 
 .features .card p {
-	/* width: 18rem; */
 	width: 100%;
 }
 
@@ -3828,6 +3823,18 @@ h2.comment_title {
 .top-menu .phone-request {
 	font-size: 1.06rem;
 	text-decoration: underline;
+}
+
+.top-menu .row .col-sm-3 {
+	margin-top: -6px;
+}
+
+.top-menu .row .col-sm-9 {
+	margin-top: -14px;
+}
+
+.top-menu .row .col-sm-9 .col-sm-9 {
+	float: right;
 }
 
 .blue-magnet {
@@ -3866,13 +3873,13 @@ h2.comment_title {
 	color: #f40303;
 	/* font-weight: bolder; */
 }
-/* .menu {
-	height: 40px;
-	padding: 20px;
-}
-*/
+
 .menu-el {
 	padding-top: 9px;
+}
+
+.menu-el a {
+	font-size: 1rem !important;
 }
 
 @media(max-width: 991px){
@@ -3889,6 +3896,10 @@ h2.comment_title {
 
 	.menu_open {
 		margin-top: 85px !important;
+	}
+
+	.map-responsive {
+		padding-bottom: 40%;
 	}
 } 
 
