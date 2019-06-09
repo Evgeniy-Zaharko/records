@@ -3907,7 +3907,7 @@ h2.comment_title {
 	margin-bottom: 40px;
 }
 
-.record-section {
+.record-section, .classes-section {
 	background-color: white;
 	padding-top: 50px;
 	padding-bottom: 50px;
@@ -3948,6 +3948,20 @@ h2.comment_title {
 	font-size: 1.9rem;
 	color: rgb(60, 66, 79);
 	font-style: italic;
+}
+
+.classes-section .card {
+	box-shadow: 0 0 10px gray;
+	/* border: 1px solid black; */
+	padding: 20px;
+}
+
+.classes-section i {
+	font-size: 2.3rem;
+}
+
+.classes-section p {
+	color: rgb(60, 66, 79);
 }
 
 @media(max-width: 991px){
