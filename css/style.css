@@ -3907,6 +3907,49 @@ h2.comment_title {
 	margin-bottom: 40px;
 }
 
+.record-section {
+	background-color: white;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.record-section .blue-btn {
+	background-color: rgb(3, 169, 244);
+	border-color: rgb(3, 169, 244);
+	color: #fff;
+	text-align: center;
+	font-size: 1.2rem;
+	border-radius: 4px;
+	padding: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	display: block;
+}
+
+.text-gray {
+	color: rgb(107, 124, 147);
+}
+
+.text-dark-gray {
+	color: rgb(87, 104, 127);
+}
+
+.spaced {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.spaced-extra {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.record-section .text-feature {
+	font-size: 1.9rem;
+	color: rgb(60, 66, 79);
+	font-style: italic;
+}
+
 @media(max-width: 991px){
 	.nc_navigations ul > li i {
 		margin-top: 7px;
